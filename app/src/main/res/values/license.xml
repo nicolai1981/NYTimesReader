@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="license_text" translatable="false">
+- The Android Open Source Project (Support library v7; Google Play Services; platform/frameworks/base.git/+/master/core/java/android/app/IntentService.java; platform/frameworks/base/+/android-7.24.1_1/core/java/android/content/CursorLoader.java)
+&lt;br/&gt;
+Project homepage: &lt;a href=\"http://source.android.com/\"&gt;http://source.android.com&lt;/a&gt;
+&lt;br/&gt;
+Copyright© 2006-2017 The Android Open Source Project
+&lt;br/&gt;
+Licensed under the Apache License, Version 2.0 (the "License").
+&lt;br/&gt;
+You may obtain a copy of the License at &lt;a href=\"http://www.apache.org/licenses/LICENSE-2.0\"&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/a&gt;
+&lt;br/&gt;
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS-IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+&lt;br/&gt;&lt;br/&gt;
+
+- Gson
+&lt;br/&gt;
+Project homepage: &lt;a href=\"https://code.google.com/p/google-gson\"&gt;https://code.google.com/p/google-gson/&lt;/a&gt;
+&lt;br/&gt;
+Copyright &#169; 2008 Google Inc.
+&lt;br/&gt;
+Licensed under the Apache License, Version 2.0 (the "License").
+&lt;br/&gt;
+You may obtain a copy of the License at &lt;a href=\"http://www.apache.org/licenses/LICENSE-2.0\"&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/a&gt;
+&lt;br/&gt;
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+&lt;br/&gt;&lt;br/&gt;
+
+- Retrofit
+&lt;br/&gt;
+Project homepage: &lt;a href=\"http://square.github.io/retrofit\"&gt;http://square.github.io/retrofit/&lt;/a&gt;
+&lt;br/&gt;
+Copyright 2013 Square, Inc.
+&lt;br/&gt;
+Licensed under the Apache License, Version 2.0 (the "License").
+&lt;br/&gt;
+You may obtain a copy of the License at &lt;a href=\"http://www.apache.org/licenses/LICENSE-2.0\"&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/a&gt;
+&lt;br/&gt;
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+&lt;br/&gt;&lt;br/&gt;
+
+- Picasso
+&lt;br/&gt;
+Project homepage: &lt;a href=\"https://github.com/square/picasso\"&gt;https://github.com/square/picasso&lt;/a&gt;
+&lt;br/&gt;
+Copyright 2013 Square, Inc.
+&lt;br/&gt;
+Licensed under the Apache License, Version 2.0 (the "License").
+&lt;br/&gt;
+You may obtain a copy of the License at &lt;a href=\"http://www.apache.org/licenses/LICENSE-2.0\"&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/a&gt;
+&lt;br/&gt;
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+&lt;br/&gt;&lt;br/&gt;
+
+- EventBus
+&lt;br/&gt;
+Project homepage: &lt;a href=\"https://github.com/greenrobot/EventBus\"&gt;https://github.com/greenrobot/EventBus&lt;/a&gt;
+&lt;br/&gt;
+Copyright &#169; 2012 Markus Junginger, greenrobot (http://greenrobot.de)
+&lt;br/&gt;
+Licensed under the Apache License, Version 2.0 (the "License").
+&lt;br/&gt;
+You may obtain a copy of the License at &lt;a href=\"http://www.apache.org/licenses/LICENSE-2.0\"&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/a&gt;
+&lt;br/&gt;
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+</string>
+</resources>
