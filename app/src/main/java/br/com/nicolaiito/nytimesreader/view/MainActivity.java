@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -59,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ArticleViewModel.getInstance().getPopularArticles();
+        if (ArticleViewModel.getInstance().getLastKeyWords().isEmpty()) {
+            ArticleViewModel.getInstance().getPopularArticles();
+        }
     }
 
     @Override
@@ -73,12 +76,19 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        if (mSearchView != null) {
-            mSearchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-            mSearchView.setIconifiedByDefault(false);
+
+
+        String lastKeyWords = ArticleViewModel.getInstance().getLastKeyWords();
+        if (!lastKeyWords.isEmpty()) {
+            MenuItem searchViewItem = menu.findItem(R.id.action_search);
+            searchViewItem.expandActionView();
+            mSearchView.setQuery(lastKeyWords, false);
+            mSearchView.clearFocus();
         }
 
-        SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
+        mSearchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        mSearchView.setIconifiedByDefault(false);
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             public boolean onQueryTextChange(String newText) {
                 ArticleViewModel.getInstance().queryArticles(newText);
                 return true;
@@ -89,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 mSearchView.clearFocus();
                 return true;
             }
-        };
-        mSearchView.setOnQueryTextListener(queryTextListener);
+        });
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -99,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_search) {
-            mSearchView.setQuery(ArticleViewModel.getInstance().getLastKeyWords(), false);
             return true;
         }
         return super.onOptionsItemSelected(item);

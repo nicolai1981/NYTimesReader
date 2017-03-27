@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Article extends BaseObservable {
-    private final SimpleDateFormat sDateFormatter = new SimpleDateFormat("MM/dd/yyyy - HH:mm");
+    private static final String URL_ROOT = "http://www.nytimes.com/";
+    private static final String UNKNOWN_IMAGE = "undefined";
+    private static final SimpleDateFormat sDateFormatter = new SimpleDateFormat("MM/dd/yyyy - HH:mm");
     public String id;
     public String titleText;
     public Date publishDate;
@@ -23,7 +25,7 @@ public class Article extends BaseObservable {
         article.titleText = data.mTitle;
         article.abstractText = data.mAbstract;
         article.publishDate = data.mDate;
-        article.imageURL = "undefined";
+        article.imageURL = UNKNOWN_IMAGE;
         for (PopularArticleResponse.MediaData media : data.mListMedia) {
             if ("image".equals(media.mType) && !media.mListMetaData.isEmpty()) {
                 int width = 0;
@@ -45,7 +47,7 @@ public class Article extends BaseObservable {
         article.titleText = data.mHeadLine.mMain;
         article.abstractText = data.mAbstract == null ? data.mLeadParagraph : data.mAbstract;
         article.publishDate = data.mDate;
-        article.imageURL = "undefined";
+        article.imageURL = UNKNOWN_IMAGE;
         int width = 0;
         for (SearchArticleResponse.PhotoData media : data.mListPhoto) {
             if ("image".equals(media.mType)) {
@@ -55,7 +57,7 @@ public class Article extends BaseObservable {
                 }
             }
         }
-        article.imageURL = "http://www.nytimes.com/" + article.imageURL;
+        article.imageURL = URL_ROOT + article.imageURL;
         return article;
     }
 }

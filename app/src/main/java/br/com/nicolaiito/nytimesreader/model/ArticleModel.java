@@ -5,6 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,6 +20,12 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class ArticleModel {
+    private static final String TAG = "ArticleModel";
+
+    public enum REQ_ERROR {
+        NO_INTERNET,
+    }
+
     private static final String BASE_URL = "https://api.nytimes.com/svc/";
     // TODO encrypt the key value
     private static final String PARAM = "57c9e7fe88234b458f7f91ce00bd9062";
@@ -96,7 +103,13 @@ public class ArticleModel {
 
         @Override
         public void onFailure(Call<PopularArticleResponse> call, Throwable t) {
-            Log.e(">>>>>>", "onFailure: <" + t + ">");
+            Log.e(TAG, "onFailure: <" + t + ">");
+            // TODO add case when failed because the free acount limits
+            if (!mCancelled) {
+                if (t instanceof UnknownHostException) {
+                    ArticleViewModel.getInstance().requestFailed(REQ_ERROR.NO_INTERNET);
+                }
+            }
         }
 
         public void cancel() {
@@ -134,7 +147,13 @@ public class ArticleModel {
 
         @Override
         public void onFailure(Call<SearchArticleResponse> call, Throwable t) {
-            Log.e(">>>>>>", "QueryArticleCB:onFailure: <" + t + ">");
+            Log.e(TAG, "onFailure: <" + t + ">");
+            // TODO add case when failed because the free acount limits
+            if (!mCancelled) {
+                if (t instanceof UnknownHostException) {
+                    ArticleViewModel.getInstance().requestFailed(REQ_ERROR.NO_INTERNET);
+                }
+            }
         }
 
         public void cancel() {

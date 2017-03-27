@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="articleVM" type="br.com.nicolaiito.nytimesreader.viewmodel.ArticleViewModel"/>
+        <import type="android.view.View" />
+        <variable
+            name="articleVM"
+            type="br.com.nicolaiito.nytimesreader.viewmodel.ArticleViewModel" />
     </data>
 
     <RelativeLayout
@@ -13,11 +15,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="@{articleVM.isLoading ? View.VISIBLE : View.INVISIBLE}"
+            android:text="@{articleVM.connectionMessage}" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/article_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            bind:items="@{articleVM.articleList}"/>
+            android:visibility="@{articleVM.isLoading ? View.INVISIBLE : View.VISIBLE}"
+            bind:items="@{articleVM.articleList}" />
+
     </RelativeLayout>
 </layout>
