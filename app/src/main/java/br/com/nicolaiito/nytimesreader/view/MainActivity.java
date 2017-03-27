@@ -16,6 +16,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -153,15 +154,6 @@ public class MainActivity extends AppCompatActivity {
         TextView txtMsg = (TextView) dialogView.findViewById(R.id.license_content);
         txtMsg.setText(Html.fromHtml(getResources().getString(R.string.license_text)));
         txtMsg.setMovementMethod(LinkMovementMethod.getInstance());
-
-        dialogView.findViewById(R.id.api_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://developer.nytimes.com"));
-                startActivity(intent);
-            }
-        });
 
         dialogBuilder.setTitle(R.string.dialog_title_license);
         dialogBuilder.setView(dialogView);

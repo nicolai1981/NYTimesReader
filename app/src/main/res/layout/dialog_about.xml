@@ -21,7 +21,6 @@
                 android:text="@string/dialog_msg_about"/>
 
             <ImageView
-                android:id="@+id/api_button"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_margin="@dimen/space_5dp"
